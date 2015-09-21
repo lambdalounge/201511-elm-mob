@@ -9,4 +9,4 @@ import Html.Events as Events
 -- work together first. before good code.
 
 main : Html
-main = Html.text "Hello world"
+main = Html.text "1"
