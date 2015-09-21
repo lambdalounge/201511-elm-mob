@@ -14,7 +14,7 @@ main = Html.pre []
         [
           Html.text 
             (
-              fizzbuzzinate 1 5
+              fizzbuzzinate 1 100
             )
         ]
 
@@ -27,10 +27,11 @@ fizzbuzzinate startingNum endingNum =
 
 fizzbuzz : Int -> String
 fizzbuzz num = 
-  case num of
-    3 -> "fizz"
-    5 -> "buzz"
-    _ -> toString num
+  if
+    | (num % 3 == 0) && (num % 5 == 0) -> "fizzbuzz"
+    | num % 3 == 0 -> "fizz"
+    | num % 5 == 0 -> "buzz"
+    | otherwise -> toString num
 
 unchomp : String -> String
 unchomp s = s ++ "\n"
