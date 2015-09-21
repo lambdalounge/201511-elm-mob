@@ -3,6 +3,7 @@ module FizzBuzz where
 import Html exposing (Html)
 import Html.Attributes as Attributes
 import Html.Events as Events
+import String
 
 -- talk in questions
 -- facilitator at the back of the room, off to the side, unless there's a purpose
@@ -13,16 +14,22 @@ main = Html.pre []
         [
           Html.text 
             (
-                 (unchomp (fizzbuzz 1))
-              ++ (unchomp (fizzbuzz 2))
-              ++ (unchomp (fizzbuzz 3))
+              fizzbuzzinate 1 5
             )
         ]
+
+
+fizzbuzzinate : Int -> Int -> String
+fizzbuzzinate startingNum endingNum =
+  List.map fizzbuzz [ startingNum .. endingNum ]
+    |> String.join "\n"
+
 
 fizzbuzz : Int -> String
 fizzbuzz num = 
   case num of
     3 -> "fizz"
+    5 -> "buzz"
     _ -> toString num
 
 unchomp : String -> String
