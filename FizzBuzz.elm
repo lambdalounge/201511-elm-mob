@@ -9,4 +9,22 @@ import Html.Events as Events
 -- work together first. before good code.
 
 main : Html
-main = Html.text "1"
+main = Html.pre [] 
+        [
+          Html.text 
+            (
+                 (unchomp (fizzbuzz 1))
+              ++ (unchomp (fizzbuzz 2))
+              ++ (unchomp (fizzbuzz 3))
+            )
+        ]
+
+fizzbuzz : Int -> String
+fizzbuzz num = 
+  case num of
+    3 -> "fizz"
+    _ -> toString num
+
+unchomp : String -> String
+unchomp s = s ++ "\n"
+
